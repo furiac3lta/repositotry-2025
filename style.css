@@ -1,0 +1,123 @@
+/* PALETAS */
+:root {
+  --bg: #e5d9ec;
+  --text: #1e1e1e;
+  --card: #ffffff;
+  --card-border: #e5d9ec;
+  --accent: #e11d48;
+  --accent2: #ff8fab;
+}
+
+html.dark {
+  --bg: #0c0b10;
+  --text: #e8e8e8;
+  --card: #16141a;
+  --card-border: #402737;
+  --accent: #ff4d6d;
+  --accent2: #ff8fab;
+}
+
+/* SECTIONS */
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--accent);
+  margin-bottom: 2rem;
+}
+
+/* CARDS */
+.card-box,
+.contact-box {
+  border: 1px solid var(--card)!important;
+  padding: 1.4rem;
+  border-radius: 1rem;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  transition: all .3s;
+  border-color: #402737 !important;
+}
+   
+.card-box iframe {
+  pointer-events: none;
+}
+
+.card-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.card-box h3 {
+  color:  #ff5d83!important;
+  font-weight: 700;
+  margin-bottom: .5rem;
+  background: (var(--bg))!important;
+}
+.card-box p {
+  color: var(--text);
+  background: (var(--bg))!important;
+}
+.contact-box {
+  text-align: center;
+}
+
+.contact-box i {
+  color: var(--accent);
+  margin-bottom: .5rem;
+}
+
+/* TERMINAL */
+.terminal {
+  background: #0a0a0a;
+  color: #ff5b7f;
+  border: 1px solid #ff2b50;
+  box-shadow: 0 0 25px rgba(255, 40, 70, 0.35);
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+html.dark .terminal {
+  background: #000;
+  color: #ff8cab;
+  border-color: #ff5d83;
+}
+
+.cursor {
+  animation: blink 0.8s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+/* WRAPPER GLOBAL */
+.theme-wrapper,
+.theme-wrapper * {
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+/* EXCEPCIONES PERMITIDAS (botones y terminal) */
+.button-primary {
+  background-color: var(--accent) !important;
+  color: #000 !important;
+}
+
+.button-primary:hover {
+  background-color: var(--accent2) !important;
+}
+
+
+
+button,
+.button-primary {
+  background: var(--card) !important;
+  border: 1px solid var(--card-border) !important;
+  color: var(--text) !important;
+}
+
+html.dark button {
+  background: var(--card) !important;
+  color: var(--text) !important;
+}
+.ri-fire-fill{
+    color: var(--accent) !important;
+}

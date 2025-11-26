@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MarceDev – CV</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Iconos -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="transition-all min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="w-full flex items-center justify-between px-6 py-4 border-b border-red-900/30">
+    <h1 class="text-xl font-bold text-red-500 flex items-center gap-2">
+      <i class="ri-fire-fill text-red-500"></i> MarceDev
+    </h1>
+
+    <div class="flex gap-3">
+
+      <!-- Idioma -->
+      <button id="langToggle"
+        class="px-3 py-2 rounded-md bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:opacity-80 transition">
+        🌐 ES / EN
+      </button>
+
+      <!-- Modo Oscuro -->
+      <button id="themeToggle"
+        class="px-3 py-2 rounded-md bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:opacity-80 transition">
+        🌓 Tema
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="text-center mt-16 mb-10 px-6">
+    <h2 data-key="titleDev" class="text-4xl md:text-5xl font-extrabold text-red-500">
+      Desarrollador Full Stack Java
+    </h2>
+
+    <p data-key="subtitle" class="mt-4 text-lg opacity-80 max-w-xl mx-auto">
+      Responsable, proactivo y en constante capacitación.
+    </p>
+
+    <!-- TERMINAL -->
+    <div class="terminal max-w-3xl mx-auto mt-6 p-5 rounded-lg font-mono text-sm">
+      <div id="terminalContent"></div>
+      <span class="cursor">█</span>
+    </div>
+
+    <!-- Botón descarga CV -->
+    <a href="cv2025.pdf" download
+       class="mt-8 inline-flex items-center gap-2 bg-red-500 text-black font-semibold px-6 py-3 rounded-lg hover:bg-red-400 transition">
+      <i class="ri-download-2-line text-xl"></i> Descargar CV PDF
+    </a>
+  </section>
+
+  <!-- Experiencia -->
+  <section class="max-w-3xl mx-auto px-6 mb-20 space-y-10">
+
+    <div>
+      <h3 class="text-2xl font-bold mb-4" data-key="experience">Experiencia Laboral</h3>
+
+      <div class="space-y-6">
+
+        <div class="card-dark p-5 border border-red-900/40 rounded-xl">
+          <h4 class="font-semibold text-red-400">Administrativo Senior – Pecom Energía</h4>
+          <p class="opacity-70 text-sm">2006 – 2025</p>
+          <ul class="mt-2 space-y-1 text-sm opacity-90">
+            <li>Gestión de compras y RRHH.</li>
+            <li>Excel avanzado, SAP y presentaciones.</li>
+          </ul>
+        </div>
+
+        <div class="card-dark p-5 border border-red-900/40 rounded-xl">
+          <h4 class="font-semibold text-red-400">Técnico en Redes – Freelance</h4>
+          <p class="opacity-70 text-sm">2001 – 2006</p>
+          <ul class="mt-2 space-y-1 text-sm opacity-90">
+            <li>Instalación de redes LAN.</li>
+            <li>Soporte Linux y Windows.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+<!-- SKILLS -->
+<section class="max-w-3xl mx-auto px-6 mb-20">
+  <h2 class="text-2xl font-bold mb-6" data-key="skills">Habilidades Técnicas</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    <div class="card-dark p-5 rounded-xl border border-red-900/40">
+      <h4 class="font-semibold text-red-400">Lenguajes</h4>
+      <p class="text-sm opacity-80 mt-2">Java, JavaScript</p>
+    </div>
+
+    <div class="card-dark p-5 rounded-xl border border-red-900/40">
+      <h4 class="font-semibold text-red-400">Frameworks</h4>
+      <p class="text-sm opacity-80 mt-2">Spring Boot, Angular</p>
+    </div>
+
+    <div class="card-dark p-5 rounded-xl border border-red-900/40">
+      <h4 class="font-semibold text-red-400">Base de Datos</h4>
+      <p class="text-sm opacity-80 mt-2">MySQL</p>
+    </div>
+
+    <div class="card-dark p-5 rounded-xl border border-red-900/40 md:col-span-3">
+      <h4 class="font-semibold text-red-400">Herramientas</h4>
+      <p class="text-sm opacity-80 mt-2">Git · Postman · Swagger · Linux</p>
+    </div>
+
+  </div>
+</section>
+<!-- PROJECTS -->
+<section class="section">
+  <h2 class="section-title" data-key="projects">Proyectos</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+
+    <!-- Card -->
+    <div class="project-card border-l-4 border-[var(--accent)] rounded-xl bg-[var(--card)] p-5 shadow-md hover:shadow-xl transition-all">
+      <h3 class="text-lg font-semibold text-[var(--accent)]" data-key="proj1"></h3>
+      <p class="text-sm opacity-80 mt-2">Sistema completo de asistencias con QR, panel admin y estadísticas.</p>
+    </div>
+
+    <div class="project-card border-l-4 border-[var(--accent)] rounded-xl bg-[var(--card)] p-5 shadow-md hover:shadow-xl transition-all">
+      <h3 class="text-lg font-semibold text-[var(--accent)]" data-key="proj2"></h3>
+      <p class="text-sm opacity-80 mt-2">Tienda completa con carrito y panel admin.</p>
+    </div>
+
+    <div class="project-card border-l-4 border-[var(--accent)] rounded-xl bg-[var(--card)] p-5 shadow-md hover:shadow-xl transition-all md:col-span-2">
+      <h3 class="text-lg font-semibold text-[var(--accent)]" data-key="proj3"></h3>
+      <p class="text-sm opacity-80 mt-2">Chatbot inteligente con Google Calendar + n8n + WhatsApp.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section mt-20">
+  <h2 class="section-title" data-key="contact">Contacto</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+
+    <!-- WhatsApp -->
+    <div class="contact-card bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-4 flex items-center gap-4 shadow-md hover:shadow-xl transition-all">
+      <i class="ri-whatsapp-fill text-3xl text-[var(--accent)]"></i>
+      <p class="text-sm">+54 9 3743 568193</p>
+    </div>
+
+    <!-- Email -->
+    <div class="contact-card bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-4 flex items-center gap-4 shadow-md hover:shadow-xl transition-all">
+      <i class="ri-mail-fill text-3xl text-[var(--accent)]"></i>
+      <p class="text-sm">colummarcelo@gmail.com</p>
+    </div>
+
+    <!-- LinkedIn -->
+    <div class="contact-card bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-4 flex items-center gap-4 shadow-md hover:shadow-xl transition-all">
+      <i class="ri-user-3-fill text-3xl text-[var(--accent)]"></i>
+      <p class="text-sm">linkedin.com/in/marcelo-colum</p>
+    </div>
+
+  </div>
+</section>
+
+  
+  <!-- Footer -->
+  <footer class="text-center py-10 opacity-60">
+    © 2025 – MarceDev
+  </footer>
+
+<script src="main.js"></script>
+</body>
+</html>

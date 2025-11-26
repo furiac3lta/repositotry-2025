@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MarceDev – CV</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="transition-colors duration-500 theme-wrapper">
+
+  <!-- NAVBAR -->
+  <nav class="w-full flex items-center justify-between px-6 py-4 border-b border-[var(--card-border)] bg-[var(--bg)]">
+    <h1 class="text-xl font-bold text-[var(--accent)] flex items-center gap-2">
+      <i class="ri-fire-fill"></i> MarceDev
+    </h1>
+
+    <div class="flex items-center gap-3">
+
+      <button id="langToggle"
+        class="flex items-center gap-2 px-3 py-2 rounded-md bg-[var(--card)] border border-[var(--card-border)] hover:opacity-80 transition">
+        <i class="ri-translate-2"></i> ES/EN
+      </button>
+
+      <button id="themeToggle"
+        class="flex items-center gap-2 px-3 py-2 rounded-md bg-[var(--card)] border border-[var(--card-border)] hover:opacity-80 transition">
+        <i id="themeIcon" class="ri-moon-clear-fill"></i> Tema
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="text-center mt-16 mb-10 px-6 bg-[var(--bg)]">
+    <h2 data-key="titleDev" class="text-5xl font-extrabold text-[var(--accent)]">
+      Desarrollador Full Stack Java
+    </h2>
+
+    <p data-key="subtitle" class="mt-4 text-lg opacity-80 max-w-xl mx-auto">
+      Responsable, proactivo y en constante capacitación...
+    </p>
+
+    <!-- Terminal -->
+    <div class="terminal mt-8 max-w-3xl mx-auto p-6 rounded-xl shadow-lg">
+      <div id="terminalContent"></div>
+      <span class="cursor">█</span>
+    </div>
+
+    <a href="cv2025.pdf" download
+      class="mt-8 inline-flex items-center gap-2 bg-[var(--accent)] text-black font-semibold px-6 py-3 rounded-lg hover:bg-[var(--accent2)] transition">
+      <i class="ri-download-2-line text-xl"></i> Descargar CV PDF
+    </a>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="mt-24 px-6 max-w-4xl mx-auto bg-[var(--bg)]">
+    <h2 class="section-title">Skills</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <div class="card-box text-center">
+        <h3>Lenguajes</h3>
+        <p>Java, JavaScript</p>
+      </div>
+
+      <div class="card-box text-center">
+        <h3>Frameworks</h3>
+        <p>Spring Boot, Angular</p>
+      </div>
+
+      <div class="card-box text-center">
+        <h3>Base de Datos</h3>
+        <p>MySQL</p>
+      </div>
+
+      <div class="card-box md:col-span-3 text-center">
+        <h3>Herramientas</h3>
+        <p>Git · Postman · Swagger · Linux</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="mt-24 px-6 max-w-4xl mx-auto bg-[var(--bg)]">
+  <h2 class="section-title">Proyectos</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <!-- PROYECTO 1 -->
+    <a href="https://attendance-frontend-v2-production.up.railway.app/login" 
+       target="_blank" 
+       class="block card-box text-center hover:no-underline">
+
+      <img src="./img/login.png" 
+           alt="preview asistencias"
+           class="w-full h-40 object-cover rounded-lg mb-3 shadow-md">
+
+      <p>Sistema completo de asistencias Angular + Java.</p>
+    </a>
+
+    <!-- PROYECTO 2 -->
+    <a href="https://attendanceappmarce.netlify.app/" 
+       target="_blank" 
+       class="block card-box text-center hover:no-underline">
+
+      <img src="./img/franklin.png" 
+           alt="preview chatbot"
+           class="w-full h-40 object-cover rounded-lg mb-3 shadow-md">
+
+      <p>Chatbot para dar turnos IA n8n + Google Calendar.</p>
+    </a>
+
+  </div>
+</section>
+
+
+  <!-- CONTACT -->
+ <section class="mt-24 px-6 max-w-3xl mx-auto bg-[var(--bg)]">
+  <h2 class="section-title">Contacto</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <div class="contact-box">
+      <i class="ri-whatsapp-fill text-3xl"></i>
+      <p>+54 9 3743 568193</p>
+    </div>
+
+    <div class="contact-box">
+      <i class="ri-mail-fill text-3xl"></i>
+      <p>colummarcelo@gmail.com</p>
+    </div>
+
+    <div class="contact-box">
+      <i class="ri-user-3-fill text-3xl"></i>
+      <p>linkedin.com/in/marcelo-colum</p>
+    </div>
+
+    <div class="contact-box">
+      <i class="ri-github-fill text-3xl"></i>
+      <p>github.com/furiac3lta</p>
+    </div>
+
+  </div>
+</section>
+
+  <footer class="text-center py-10 opacity-60 mt-24 bg-[var(--bg)]">
+    © 2025 – MarceDev
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
