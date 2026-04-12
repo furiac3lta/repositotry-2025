@@ -1,0 +1,17 @@
+services:
+  gateway:
+    build:
+      context: .
+    container_name: columtech-gateway
+    ports:
+      - "80:80"
+    depends_on:
+      - muni
+    restart: unless-stopped
+
+  muni:
+    image: muni-app:latest
+    container_name: muni
+    expose:
+      - "8080"
+    restart: unless-stopped

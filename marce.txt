@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MarceDev – CV</title>
+  <title>ColumTech – CV</title>
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -20,7 +20,7 @@
   <!-- Navbar -->
   <nav class="w-full flex items-center justify-between px-6 py-4 border-b border-red-900/30">
     <h1 class="text-xl font-bold text-red-500 flex items-center gap-2">
-      <i class="ri-fire-fill text-red-500"></i> MarceDev
+      <i class="ri-fire-fill text-red-500"></i> ColumTech
     </h1>
 
     <div class="flex gap-3">
@@ -150,12 +150,12 @@
 <section class="section mt-20">
   <h2 class="section-title" data-key="contact">Contacto</h2>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
 
     <!-- WhatsApp -->
     <div class="contact-card bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-4 flex items-center gap-4 shadow-md hover:shadow-xl transition-all">
       <i class="ri-whatsapp-fill text-3xl text-[var(--accent)]"></i>
-      <p class="text-sm">+54 9 3743 568193</p>
+      <p class="text-sm">+54 9 3743 48-6440</p>
     </div>
 
     <!-- Email -->
@@ -170,13 +170,19 @@
       <p class="text-sm">linkedin.com/in/marcelo-colum</p>
     </div>
 
+    <!-- Website -->
+    <div class="contact-card bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-4 flex items-center gap-4 shadow-md hover:shadow-xl transition-all">
+      <i class="ri-global-fill text-3xl text-[var(--accent)]"></i>
+      <a href="https://www.columtech.com.ar" target="_blank" class="text-sm">www.columtech.com.ar</a>
+    </div>
+
   </div>
 </section>
 
   
   <!-- Footer -->
   <footer class="text-center py-10 opacity-60">
-    © 2025 – MarceDev
+    © 2025 – ColumTech
   </footer>
 
 <script src="main.js"></script>

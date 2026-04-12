@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MarceDev – CV</title>
+  <title>ColumTech</title>
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -20,10 +20,20 @@
   <!-- NAVBAR -->
   <nav class="w-full flex items-center justify-between px-6 py-4 border-b border-[var(--card-border)] bg-[var(--bg)]">
     <h1 class="text-xl font-bold text-[var(--accent)] flex items-center gap-2">
-      <i class="ri-fire-fill"></i> MarceDev
+      <i class="ri-fire-fill"></i> ColumTech
     </h1>
 
-    <div class="flex items-center gap-3">
+    <div class="flex items-center gap-3 flex-wrap justify-end">
+
+      <a href="/proyectos"
+        class="flex items-center gap-2 px-3 py-2 rounded-md bg-[var(--card)] border border-[var(--card-border)] hover:opacity-80 transition">
+        <i class="ri-folder-open-line"></i> Proyectos
+      </a>
+
+      <a href="/proyectos/municipio"
+        class="flex items-center gap-2 px-3 py-2 rounded-md bg-[var(--card)] border border-[var(--card-border)] hover:opacity-80 transition">
+        <i class="ri-building-line"></i> Municipio
+      </a>
 
       <button id="langToggle"
         class="flex items-center gap-2 px-3 py-2 rounded-md bg-[var(--card)] border border-[var(--card-border)] hover:opacity-80 transition">
@@ -41,11 +51,11 @@
   <!-- HERO -->
   <section class="text-center mt-16 mb-10 px-6 bg-[var(--bg)]">
     <h2 data-key="titleDev" class="text-5xl font-extrabold text-[var(--accent)]">
-      Desarrollador Full Stack Java
+      ColumTech
     </h2>
 
     <p data-key="subtitle" class="mt-4 text-lg opacity-80 max-w-xl mx-auto">
-      Responsable, proactivo y en constante capacitación...
+      Portal principal para centralizar proyectos y accesos bajo columtech.com.ar.
     </p>
 
     <!-- Terminal -->
@@ -54,36 +64,48 @@
       <span class="cursor">█</span>
     </div>
 
-    <a href="cv2025.pdf" download
+    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="/proyectos"
+      class="inline-flex items-center gap-2 bg-[var(--accent)] text-black font-semibold px-6 py-3 rounded-lg hover:bg-[var(--accent2)] transition">
+      <i class="ri-layout-grid-fill text-xl"></i> Ver proyectos
+      </a>
+
+      <a href="/proyectos/municipio"
+      class="inline-flex items-center gap-2 bg-[var(--accent)] text-black font-semibold px-6 py-3 rounded-lg hover:bg-[var(--accent2)] transition">
+      <i class="ri-building-2-fill text-xl"></i> Ir a Municipio
+      </a>
+    </div>
+
+    <a href="/proyectos"
       class="mt-8 inline-flex items-center gap-2 bg-[var(--accent)] text-black font-semibold px-6 py-3 rounded-lg hover:bg-[var(--accent2)] transition">
-      <i class="ri-download-2-line text-xl"></i> Descargar CV PDF
+      <i class="ri-arrow-right-line text-xl"></i> Entrar al portal
     </a>
   </section>
 
   <!-- SKILLS -->
   <section class="mt-24 px-6 max-w-4xl mx-auto bg-[var(--bg)]">
-    <h2 class="section-title">Skills</h2>
+    <h2 class="section-title">Accesos</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
       <div class="card-box text-center">
-        <h3>Lenguajes</h3>
-        <p>Java, JavaScript</p>
+        <h3>Portal</h3>
+        <p>Landing principal servida desde la raiz del dominio.</p>
       </div>
 
       <div class="card-box text-center">
-        <h3>Frameworks</h3>
-        <p>Spring Boot, Angular</p>
+        <h3>/proyectos</h3>
+        <p>Seccion para listar todas las aplicaciones y demos publicadas.</p>
       </div>
 
       <div class="card-box text-center">
-        <h3>Base de Datos</h3>
-        <p>MySQL</p>
+        <h3>/proyectos/municipio</h3>
+        <p>Acceso directo al sistema Municipio dentro del mismo dominio.</p>
       </div>
 
       <div class="card-box md:col-span-3 text-center">
-        <h3>Herramientas</h3>
-        <p>Git · Postman · Swagger · Linux</p>
+        <h3>Objetivo</h3>
+        <p>Organizar cada app bajo rutas claras sin cambiar el estilo visual de la landing.</p>
       </div>
 
     </div>
@@ -96,27 +118,27 @@
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
     <!-- PROYECTO 1 -->
-    <a href="https://attendance-frontend-v2-production.up.railway.app/login" 
-       target="_blank" 
+    <a href="/proyectos" 
        class="block card-box text-center hover:no-underline">
 
       <img src="./img/login.png" 
-           alt="preview asistencias"
+           alt="preview proyectos"
            class="w-full h-40 object-cover rounded-lg mb-3 shadow-md">
 
-      <p>Sistema completo de asistencias Angular + Java.</p>
+      <h3>Listado de proyectos</h3>
+      <p>Entrada general a todas las apps disponibles dentro de ColumTech.</p>
     </a>
 
     <!-- PROYECTO 2 -->
-    <a href="https://attendanceappmarce.netlify.app/" 
-       target="_blank" 
+    <a href="/proyectos/municipio" 
        class="block card-box text-center hover:no-underline">
 
       <img src="./img/franklin.png" 
-           alt="preview chatbot"
+           alt="preview municipio"
            class="w-full h-40 object-cover rounded-lg mb-3 shadow-md">
 
-      <p>Chatbot para dar turnos IA n8n + Google Calendar.</p>
+      <h3>Municipio</h3>
+      <p>Acceso directo al modulo municipal publicado en <strong>/proyectos/municipio</strong>.</p>
     </a>
 
   </div>
@@ -125,35 +147,35 @@
 
   <!-- CONTACT -->
  <section class="mt-24 px-6 max-w-3xl mx-auto bg-[var(--bg)]">
-  <h2 class="section-title">Contacto</h2>
+  <h2 class="section-title">Dominio</h2>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
     <div class="contact-box">
-      <i class="ri-whatsapp-fill text-3xl"></i>
-      <p>+54 9 3743 568193</p>
+      <i class="ri-global-fill text-3xl"></i>
+      <p>columtech.com.ar</p>
     </div>
 
     <div class="contact-box">
-      <i class="ri-mail-fill text-3xl"></i>
-      <p>colummarcelo@gmail.com</p>
+      <i class="ri-folder-open-fill text-3xl"></i>
+      <p>/proyectos</p>
     </div>
 
     <div class="contact-box">
-      <i class="ri-user-3-fill text-3xl"></i>
-      <p>linkedin.com/in/marcelo-colum</p>
+      <i class="ri-building-2-fill text-3xl"></i>
+      <p>/proyectos/municipio</p>
     </div>
 
     <div class="contact-box">
-      <i class="ri-github-fill text-3xl"></i>
-      <p>github.com/furiac3lta</p>
+      <i class="ri-route-fill text-3xl"></i>
+      <p>Navegacion unificada para todos tus sistemas</p>
     </div>
 
   </div>
 </section>
 
   <footer class="text-center py-10 opacity-60 mt-24 bg-[var(--bg)]">
-    © 2025 – MarceDev
+    © 2026 – ColumTech
   </footer>
 
   <script src="main.js"></script>

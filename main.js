@@ -20,12 +20,12 @@ themeBtn.addEventListener("click", () => {
 /* TRANSLATIONS */
 const translations = {
   es: {
-    titleDev: "Desarrollador Full Stack Java",
-    subtitle: "Responsable, proactivo y en constante capacitación..."
+    titleDev: "ColumTech",
+    subtitle: "Portal principal para centralizar proyectos y accesos bajo columtech.com.ar."
   },
   en: {
-    titleDev: "Full Stack Java Developer",
-    subtitle: "Responsible, proactive and always learning."
+    titleDev: "ColumTech",
+    subtitle: "Main portal to centralize projects and access points under columtech.com.ar."
   }
 };
 
@@ -48,12 +48,12 @@ document.getElementById("langToggle").addEventListener("click", () => {
 
 /* TERMINAL */
 const lines = [
-  "$ run marce_dev",
-  "> spring: cargando módulos...",
-  "> java: compilando portafolio...",
-  "> tailwind: cargando estilos...",
+  "$ run columtech",
+  "> nginx: publicando columtech.com.ar...",
+  "> rutas: cargando /proyectos...",
+  "> municipio: montando /proyectos/municipio...",
   "> sistema listo ✔",
-  "> iniciando interfaz..."
+  "> iniciando portal..."
 ];
 
 let i = 0, j = 0;
