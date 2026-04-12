@@ -51,7 +51,7 @@ const lines = [
   "$ run columtech",
   "> nginx: publicando columtech.com.ar...",
   "> rutas: cargando /proyectos...",
-  "> municipio: montando /proyectos/municipio...",
+  "> municipio: montando /proyecto/municipio/...",
   "> sistema listo ✔",
   "> iniciando portal..."
 ];
