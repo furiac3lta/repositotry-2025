@@ -1,17 +1,84 @@
 services:
   gateway:
-    build:
-      context: .
+    image: caddy:2.10-alpine
     container_name: columtech-gateway
     ports:
       - "80:80"
+      - "443:443"
     depends_on:
-      - muni
+      - frontend
     restart: unless-stopped
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./index.html:/srv/index.html:ro
+      - ./style.css:/srv/style.css:ro
+      - ./main.js:/srv/main.js:ro
+      - ./img:/srv/img:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - columtech-network
 
-  muni:
-    image: muni-app:latest
-    container_name: muni
+  mysql:
+    image: mysql:8.4
+    container_name: municipio-db
+    restart: unless-stopped
+    env_file:
+      - ../municipio/.env
+    ports:
+      - "3307:3306"
+    volumes:
+      - municipio_mysql_data:/var/lib/mysql
+      - ../municipio/muni.sql:/docker-entrypoint-initdb.d/01-muni.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -p$${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+    networks:
+      - columtech-network
+
+  backend:
+    build:
+      context: ../municipio/backend
+    container_name: municipio-backend
+    restart: unless-stopped
+    env_file:
+      - ../municipio/.env
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      PORT: 8080
+    entrypoint:
+      - sh
+      - -c
+      - >-
+        export DB_URL="jdbc:mysql://mysql:3306/$${MYSQL_DATABASE}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires&createDatabaseIfNotExist=true";
+        exec java -jar /app/app.jar
     expose:
       - "8080"
+    networks:
+      - columtech-network
+
+  frontend:
+    build:
+      context: ../municipio/frontend
+    container_name: municipio-frontend
     restart: unless-stopped
+    depends_on:
+      - backend
+    expose:
+      - "80"
+    networks:
+      - columtech-network
+
+volumes:
+  municipio_mysql_data:
+  caddy_data:
+  caddy_config:
+
+networks:
+  columtech-network:
+    driver: bridge

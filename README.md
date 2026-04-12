@@ -1,18 +1,18 @@
 # ColumTech Hub
 
-Landing principal para `www.columtech.com.ar` con proxy por rutas hacia proyectos dockerizados.
+Landing principal para `www.columtech.com.ar` con SSL automático y proxy por rutas hacia proyectos dockerizados.
 
 ## Objetivo
 
 - La landing responde en `/`
-- La app `muni` responde en `/muni`
+- La app del municipio responde en `/proyecto/municipio/`
 - El mismo contenedor frontal puede seguir sumando proyectos por ruta
+- El certificado HTTPS se emite automáticamente con Let's Encrypt
 
 ## Archivos clave
 
-- `Dockerfile`: construye la imagen frontal con Nginx
-- `nginx/default.conf`: sirve la landing y proxya `/muni`
-- `docker-compose.yml`: ejemplo base para levantar gateway + app `muni`
+- `Caddyfile`: sirve la landing, fuerza HTTPS y proxya `/proyecto/municipio/`
+- `docker-compose.yml`: levanta gateway + stack completo del municipio
 
 ## Levantar local o en el VPS
 
@@ -22,21 +22,31 @@ docker compose up -d --build
 
 Luego:
 
-- `http://TU_IP/` muestra la landing
-- `http://TU_IP/muni` redirige a la app `muni`
+- `http://localhost/` muestra la landing en local
+- `http://localhost/proyecto/municipio/` abre la app del municipio en local
+- `https://www.columtech.com.ar/` sirve la landing con SSL en el VPS
+- `https://www.columtech.com.ar/proyecto/municipio/` abre la app del municipio con SSL en el VPS
 
-## Importante para Muni
+## Integración con Municipio
 
-La app `muni` tiene que estar preparada para correr detrás de la ruta `/muni`.
+Este compose usa el proyecto ubicado en `../municipio` y levanta:
 
-Eso normalmente implica configurar su base path:
+- `municipio-db`
+- `municipio-backend`
+- `municipio-frontend`
+- `gateway`
 
-- Angular: `--base-href /muni/ --deploy-url /muni/`
-- React + Vite: `base: "/muni/"`
-- Vue/Vite: `base: "/muni/"`
-- Next.js: `basePath: "/muni"`
+El frontend Angular del municipio queda publicado detrás de `/proyecto/municipio/` y la API detrás de `/proyecto/municipio/api`.
 
-Si `muni` asume que corre en `/`, va a romper assets, navegación o refresh.
+Antes de levantar, asegurate de tener configurado el archivo `../municipio/.env`.
+
+## Requisitos para SSL
+
+- `www.columtech.com.ar` y opcionalmente `columtech.com.ar` deben apuntar a la IP pública del VPS
+- Los puertos `80` y `443` deben estar abiertos en el servidor y en cualquier firewall externo
+- El primer arranque del contenedor `gateway` debe hacerse ya con el dominio apuntando al VPS
+
+Si esas tres condiciones se cumplen, Caddy emite y renueva el certificado automáticamente.
 
 ## Donweb
 

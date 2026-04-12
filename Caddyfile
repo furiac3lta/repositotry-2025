@@ -1,0 +1,26 @@
+(columtech_app) {
+	handle /proyecto/municipio {
+		redir /proyecto/municipio/ 308
+	}
+
+	handle /proyecto/municipio/* {
+		reverse_proxy frontend:80
+	}
+
+	root * /srv
+	try_files {path} /index.html
+	file_server
+	encode zstd gzip
+}
+
+http://localhost, http://127.0.0.1 {
+	import columtech_app
+}
+
+columtech.com.ar {
+	redir https://www.columtech.com.ar{uri} permanent
+}
+
+www.columtech.com.ar {
+	import columtech_app
+}
