@@ -1,80 +1,54 @@
-/* THEME */
 const themeBtn = document.getElementById("themeToggle");
 const themeIcon = document.getElementById("themeIcon");
 
 function applyTheme(mode) {
   document.documentElement.className = mode;
   localStorage.setItem("theme", mode);
-  themeIcon.className = mode === "dark" ? "ri-sun-fill" : "ri-moon-clear-fill";
+  themeIcon.className = mode === "dark" ? "ri-sun-line" : "ri-moon-clear-line";
 }
 
-let savedTheme = localStorage.getItem("theme") || "light";
+const savedTheme = localStorage.getItem("theme") || "dark";
 applyTheme(savedTheme);
 
 themeBtn.addEventListener("click", () => {
-  savedTheme = savedTheme === "light" ? "dark" : "light";
-  applyTheme(savedTheme);
+  const nextTheme = document.documentElement.className === "dark" ? "light" : "dark";
+  applyTheme(nextTheme);
 });
 
-
-/* TRANSLATIONS */
-const translations = {
-  es: {
-    titleDev: "ColumTech",
-    subtitle: "Portal principal para centralizar proyectos y accesos bajo columtech.com.ar."
-  },
-  en: {
-    titleDev: "ColumTech",
-    subtitle: "Main portal to centralize projects and access points under columtech.com.ar."
-  }
-};
-
-let lang = localStorage.getItem("lang") || "es";
-
-function applyLang(l) {
-  document.querySelectorAll("[data-key]").forEach(el => {
-    el.textContent = translations[l][el.dataset.key];
-  });
-  localStorage.setItem("lang", l);
-}
-
-applyLang(lang);
-
-document.getElementById("langToggle").addEventListener("click", () => {
-  lang = lang === "es" ? "en" : "es";
-  applyLang(lang);
-});
-
-
-/* TERMINAL */
 const lines = [
-  "$ run columtech",
-  "> nginx: publicando columtech.com.ar...",
-  "> rutas: cargando /proyectos...",
-  "> municipio: montando /proyecto/municipio/...",
-  "> sistema listo ✔",
-  "> iniciando portal..."
+  "$ audit --target empresa.com",
+  "> superficie relevada: sitio web, login, formularios y panel admin",
+  "> hallazgos detectados: configuraciones debiles y puntos de exposicion",
+  "> informe generado: impacto, prioridad y plan de mejora",
+  "> opcion habilitada: correccion tecnica y desarrollo de nuevas soluciones",
+  "> estado: listo para presentar propuesta comercial"
 ];
 
-let i = 0, j = 0;
-const term = document.getElementById("terminalContent");
+let lineIndex = 0;
+let charIndex = 0;
+const terminal = document.getElementById("terminalContent");
 
-function type() {
-  if (i >= lines.length) return;
-
-  if (j === 0) term.innerHTML += `<div id="l${i}"></div>`;
-
-  const el = document.getElementById(`l${i}`);
-  el.textContent = lines[i].slice(0, j + 1);
-  j++;
-
-  if (j < lines[i].length) {
-    setTimeout(type, 40);
-  } else {
-    j = 0;
-    i++;
-    setTimeout(type, 200);
+function typeTerminal() {
+  if (lineIndex >= lines.length) {
+    return;
   }
+
+  if (charIndex === 0) {
+    terminal.innerHTML += `<div id="line-${lineIndex}"></div>`;
+  }
+
+  const lineElement = document.getElementById(`line-${lineIndex}`);
+  lineElement.textContent = lines[lineIndex].slice(0, charIndex + 1);
+  charIndex += 1;
+
+  if (charIndex < lines[lineIndex].length) {
+    setTimeout(typeTerminal, 24);
+    return;
+  }
+
+  charIndex = 0;
+  lineIndex += 1;
+  setTimeout(typeTerminal, 280);
 }
 
-type();
+typeTerminal();
